@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+<header th:replace="layout/layout :: header"></header>
+<div class="container py-4">
+  <div class="card bg-light">
+    <div class="card-header">Crear Clientes</div>
+    <div class="card-body">
+      <form th:action="@{/guardar}" th:object="${cliente}" method="post"
+            enctype="multipart/form-data">
+        <div class="form-group row">
+          <label for="numeroidentificacion" class="col-sm-2 col-form-label">Número Identificación</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{numeroIdentificacion}" class="form-control" maxlength="10"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('numeroIdentificacion')}" th:errors="*{numeroidentificacion}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="tipoidentificacion" class="col-sm-2 col-form-label">Tipo Identificación</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{tipoIdentificacion}" class="form-control" maxlength="2"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('tipoIdentificacion')}" th:errors="*{tipoidentificacion}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{nombre}" class="form-control" maxlength="50"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{apellidos}" class="form-control" maxlength="50"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="edad" class="col-sm-2 col-form-label">Edad</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{edad}" class="form-control" maxlength="3"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{telefono}" class="form-control" maxlength="10"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
+          <div class="col-sm-6">
+            <input type="text" th:field="*{direccion}" class="form-control" maxlength="50"
+                   th:errorclass="'form-control alert-danger'" /> <small
+                  class="form-text text-danger"
+                  th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <input type="submit"
+                   class="btn btn-secondary"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
